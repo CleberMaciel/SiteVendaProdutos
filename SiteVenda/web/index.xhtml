@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro de Categorias</title>
+    </h:head>
+    <h:body>
+        Categorias
+        <h:form>
+            <p:outputLabel value="Nome da Categoria: "></p:outputLabel>
+            <p:inputText id="categoria" value="#{categoriaBean.cat.nomeCategoria}"></p:inputText>
+         
+            <p:commandButton value="Cadastrar" action="#{categoriaBean.adicionaCategoria()}"  update="msg1"></p:commandButton>
+             
+            <p:selectOneMenu  id="msg1" value="#{categoriaBean.cat.qualquer}" filter="true">
+                <f:selectItems  value="#{categoriaBean.listaCategoria}" var="cate" itemValue="#{cate}" itemLabel="#{cate.nomeCategoria}"/>
+            </p:selectOneMenu>
+        </h:form>   
+    </h:body>
+</html>
+
