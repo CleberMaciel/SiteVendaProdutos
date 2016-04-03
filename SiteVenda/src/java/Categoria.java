@@ -16,7 +16,7 @@ public class Categoria {
     private String qualquer;
 
     public Categoria() {
-        nomeCategoria="";
+        nomeCategoria="null";
     }
 
     public String getQualquer() {
