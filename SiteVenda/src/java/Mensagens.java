@@ -1,4 +1,5 @@
-            /*
+
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -23,13 +24,19 @@ public class Mensagens {
     public Mensagens() {
 
     }
-    
-     public void info() {
+
+    public void info() {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informativo", "Categoria Cadastrada com sucesso!."));
     }
-     
-     public void infoProdutos() {
+
+    public void infoProdutos() {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informativo", "Produto cadastrado com sucesso!."));
     }
-    
+    public void infoDeletarProdutos() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informativo", "Produto deletado com sucesso!."));
+    }
+    public void infoEditarProdutos() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informativo", "Produto editado com sucesso!."));
+    }
+
 }

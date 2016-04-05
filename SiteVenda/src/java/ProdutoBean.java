@@ -20,8 +20,6 @@ public class ProdutoBean implements Serializable {
 
     private Produto prod = new Produto();
     private List<Produto> listaProdutos = new ArrayList<>();
-    
-    
 
     /**
      * Creates a new instance of ProdutoBean
@@ -51,4 +49,11 @@ public class ProdutoBean implements Serializable {
         prod = new Produto();
     }
 
+    public void deletarProduto() {
+
+    }
+
+    public void editarProduto() {
+
+    }
 }
