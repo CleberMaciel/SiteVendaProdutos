@@ -10,24 +10,46 @@
     <h:body>
         Cadastro de Produtos
         <h:form>
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
             <p:panelGrid columns="2">
                 <p:outputLabel value="Nome Produto"></p:outputLabel>
-                <p:inputText value=""></p:inputText>
-              
+                <p:inputText value="#{produtoBean.prod.produtoNome}"></p:inputText>
+
                 <p:outputLabel value="Descrição"></p:outputLabel>
-                <p:inputText value=""></p:inputText>
-                
+                <p:inputText value="#{produtoBean.prod.produtoDescricao}"></p:inputText>
+
                 <p:outputLabel value="Cor"></p:outputLabel>
-                <p:inputText value=""></p:inputText>            
-                
+                <p:inputText value="#{produtoBean.prod.produtoCor}"></p:inputText>            
+
                 <p:outputLabel value="Categoria"></p:outputLabel>
-                
-                <p:selectOneMenu  id="msg1" value="#{categoriaBean.cat.qualquer}" filter="true">
-                    <f:selectItems  value="#{categoriaBean.listaCategoria}" var="cate" itemValue="#{cate}" itemLabel="#{cate.nomeCategoria}"/>
+
+                <p:selectOneMenu  id="msg1" value="#{categoriaBean.cat.nomeCategoria}" filter="true">
+                    <f:selectItems  value="#{categoriaBean.listaCategoria}" />
                 </p:selectOneMenu>
-                <p:commandButton value="Cadastrar Produto" actionListener="#{mensagens.infoProdutos()}"></p:commandButton>
+
+                <p:commandButton value="Cadastrar Produto" actionListener="#{mensagens.infoProdutos()}" update="@form" action="#{produtoBean.adicionarProduto()}"></p:commandButton>
+
             </p:panelGrid>
-            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+
+            <p:dataTable value="#{produtoBean.listaProdutos}" var="listaProdutos">
+
+                <p:column headerText="Nome do Produto">
+                    <p:outputLabel value="#{listaProdutos.produtoNome}"></p:outputLabel>
+                </p:column>
+
+                <p:column headerText="Cor">
+                    <p:outputLabel value="#{listaProdutos.produtoCor}"></p:outputLabel>
+                </p:column>
+
+                <p:column headerText="Categoria">
+                    <p:outputLabel value="#{listaProdutos.produtoCategoria.nomeCategoria}"></p:outputLabel>
+                </p:column>
+
+                <p:column headerText="Descrição">
+                    <p:outputLabel value="#{listaProdutos.produtoDescricao}"></p:outputLabel>
+                </p:column>
+            </p:dataTable>
         </h:form>
         <p:link outcome="index" value="Voltar para pagina inicial"></p:link>
     </h:body>

@@ -11,15 +11,18 @@
         <p:fieldset legend="Cadastro de Categorias">
             <h:form>
                 <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-              
+
                 <p:outputLabel value="Nome da Categoria: "></p:outputLabel>
                 <p:inputText id="categoria" value="#{categoriaBean.cat.nomeCategoria}"></p:inputText>
 
                 <p:commandButton value="Cadastrar" action="#{categoriaBean.adicionaCategoria()}"  update="msg1" actionListener="#{mensagens.info()}"></p:commandButton>
                 <br/><br/>
-                <p:selectOneMenu  id="msg1" value="#{categoriaBean.cat.qualquer}" filter="true">
-                    <f:selectItems  value="#{categoriaBean.listaCategoria}" var="cate" itemValue="#{cate}" itemLabel="#{cate.nomeCategoria}"/>
+                
+                <p:selectOneMenu  id="msg1" value="#{categoriaBean.cat.nomeCategoria}" filter="true">
+                    <f:selectItems  value="#{categoriaBean.listaCategoria}" />
                 </p:selectOneMenu>
+
+                <br/><br/>
 
                 <br/><br/>
                 <p:link outcome="cadastroProduto" value="Cadastro Produto">

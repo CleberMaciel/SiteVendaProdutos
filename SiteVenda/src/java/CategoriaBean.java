@@ -20,7 +20,8 @@ public class CategoriaBean implements Serializable {
     List<Categoria> listaCategoria = new ArrayList<>();
 
     public CategoriaBean() {
-
+        listaCategoria.add(new Categoria("Mouse"));
+        listaCategoria.add(new Categoria("Teclado"));
     }
 
     public Categoria getCat() {
@@ -32,6 +33,13 @@ public class CategoriaBean implements Serializable {
     }
 
     public List<Categoria> getListaCategoria() {
+        if (listaCategoria == null) {
+            listaCategoria = new ArrayList<>();
+            listaCategoria.add(new Categoria("Mouse"));
+            listaCategoria.add(new Categoria("Teclado"));
+
+        }
+
         return listaCategoria;
     }
 
