@@ -12,24 +12,25 @@ public class Produto {
 
     private String produtoNome;
     private String produtoDescricao;
-    private Categoria produtoCategoria;
+    private String produtoCategoria;
     private String produtoCor;
 
+    
     public Produto() {
     }
 
-    public Produto(String produtoNome, String produtoDescricao, Categoria produtoCategoria, String produtoCor) {
+    public Produto(String produtoNome, String produtoDescricao, String produtoCategoria, String produtoCor) {
         this.produtoNome = produtoNome;
         this.produtoDescricao = produtoDescricao;
         this.produtoCategoria = produtoCategoria;
         this.produtoCor = produtoCor;
     }
 
-    public Categoria getProdutoCategoria() {
+    public String getProdutoCategoria() {
         return produtoCategoria;
     }
 
-    public void setProdutoCategoria(Categoria produtoCategoria) {
+    public void setProdutoCategoria(String produtoCategoria) {
         this.produtoCategoria = produtoCategoria;
     }
 

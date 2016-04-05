@@ -23,7 +23,7 @@
 
                 <p:outputLabel value="Categoria"></p:outputLabel>
 
-                <p:selectOneMenu  id="msg1" value="#{categoriaBean.cat.nomeCategoria}" filter="true">
+                <p:selectOneMenu  id="msg1" value="#{produtoBean.prod.produtoCategoria}" filter="true">
                     <f:selectItems  value="#{categoriaBean.listaCategoria}" />
                 </p:selectOneMenu>
 
@@ -43,7 +43,7 @@
                 </p:column>
 
                 <p:column headerText="Categoria">
-                    <p:outputLabel value="#{listaProdutos.produtoCategoria.nomeCategoria}"></p:outputLabel>
+                    <p:outputLabel value="#{listaProdutos.produtoCategoria}"></p:outputLabel>
                 </p:column>
 
                 <p:column headerText="Descrição">

@@ -22,6 +22,8 @@ public class CategoriaBean implements Serializable {
     public CategoriaBean() {
         listaCategoria.add(new Categoria("Mouse"));
         listaCategoria.add(new Categoria("Teclado"));
+        listaCategoria.add(new Categoria("Monitor"));
+        listaCategoria.add(new Categoria("Notebook"));
     }
 
     public Categoria getCat() {

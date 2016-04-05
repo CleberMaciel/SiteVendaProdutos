@@ -18,7 +18,7 @@
                 <p:commandButton value="Cadastrar" action="#{categoriaBean.adicionaCategoria()}"  update="msg1" actionListener="#{mensagens.info()}"></p:commandButton>
                 <br/><br/>
                 
-                <p:selectOneMenu  id="msg1" value="#{categoriaBean.cat.nomeCategoria}" filter="true">
+                <p:selectOneMenu  id="msg1" value="#{categoriaBean.cat.qualquer}" filter="true">
                     <f:selectItems  value="#{categoriaBean.listaCategoria}" />
                 </p:selectOneMenu>
 
