@@ -1,9 +1,13 @@
+package Model;
+
+
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author cleber
@@ -15,7 +19,6 @@ public class Produto {
     private String produtoCategoria;
     private String produtoCor;
 
-    
     public Produto() {
     }
 
@@ -56,6 +59,19 @@ public class Produto {
 
     public void setProdutoCor(String produtoCor) {
         this.produtoCor = produtoCor;
+    }
+
+    
+    //Sobreescreve  o metodo equals, e verifica o nome do produto
+    @Override
+    public boolean equals(Object ob) {
+        if (!(ob instanceof Produto)) {
+            return false;
+
+        } else {
+            final Produto outro = (Produto) ob;
+            return this.getProdutoNome().equals(outro.getProdutoNome());
+        }
     }
 
 }

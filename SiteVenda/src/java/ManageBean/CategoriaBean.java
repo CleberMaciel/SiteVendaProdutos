@@ -1,4 +1,7 @@
+package ManageBean;
 
+
+import Model.Categoria;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,9 +57,19 @@ public class CategoriaBean implements Serializable {
     }
 
     public void adicionaCategoria() {
+        if(existeCategoria(listaCategoria.toString())){
         listaCategoria.add(cat);
         cat = new Categoria();
+        }
+    }
 
+    public boolean existeCategoria(String categoria) {
+        for (Categoria c : listaCategoria) {
+            if (c.getNomeCategoria().equals(categoria)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

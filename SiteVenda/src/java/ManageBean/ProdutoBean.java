@@ -1,9 +1,13 @@
+package ManageBean;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import Util.Mensagens;
+import Model.Produto;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -20,7 +24,7 @@ public class ProdutoBean implements Serializable {
 
     private Produto prod = new Produto();
     private List<Produto> listaProdutos = new ArrayList<>();
-
+    private Mensagens m = new Mensagens();
     /**
      * Creates a new instance of ProdutoBean
      */
@@ -44,16 +48,16 @@ public class ProdutoBean implements Serializable {
         this.listaProdutos = listaProdutos;
     }
 
+    
+    //Verifica se existe algum produto com o nome já no array, caso exista, ele não adiciona, caso contrario adiciona
     public void adicionarProduto() {
-        listaProdutos.add(new Produto(prod.getProdutoNome(), prod.getProdutoDescricao(), prod.getProdutoCategoria(), prod.getProdutoCor()));
-        prod = new Produto();
+        if (listaProdutos.contains(prod)) {
+            System.out.println("Nao");
+        } else {
+            listaProdutos.add(prod);
+            prod = new Produto();
+            //return "index";
+        }
     }
 
-    public void deletarProduto() {
-
-    }
-
-    public void editarProduto() {
-
-    }
 }

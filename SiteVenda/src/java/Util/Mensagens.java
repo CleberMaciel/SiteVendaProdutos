@@ -1,3 +1,5 @@
+package Util;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -32,11 +34,9 @@ public class Mensagens {
     public void infoProdutos() {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informativo", "Produto cadastrado com sucesso!."));
     }
-    public void infoDeletarProdutos() {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informativo", "Produto deletado com sucesso!."));
-    }
-    public void infoEditarProdutos() {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Informativo", "Produto editado com sucesso!."));
+
+    public void infoNomesRepetidos() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Erro", "Produto já cadastrado!."));
     }
 
 }

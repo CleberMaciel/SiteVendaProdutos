@@ -21,4 +21,13 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
+    <!-- Filtro de sessao   -->  
+    <filter>  
+        <filter-name>FiltroAcesso</filter-name>  
+        <filter-class>Util</filter-class>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>FiltroAcesso</filter-name>  
+        <url-pattern>/faces/*</url-pattern>  
+    </filter-mapping>  
 </web-app>
