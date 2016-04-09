@@ -20,7 +20,7 @@ import javax.inject.Named;
  */
 @Named
 @SessionScoped
-public class UsuarioBean implements Serializable {
+public class UsuarioBean implements Serializable{
 
     private List<Usuario> listaUsuarios;
     private boolean logado;
@@ -31,7 +31,7 @@ public class UsuarioBean implements Serializable {
      */
     public UsuarioBean() {
         listaUsuarios = new ArrayList<>();
-        listaUsuarios.add(new Usuario("adm", "adm"));
+        listaUsuarios.add(new Usuario("admin", "admin"));
 
         user = new Usuario();
         logado = false;
@@ -51,15 +51,13 @@ public class UsuarioBean implements Serializable {
 
     public String verificaLogin() {
         if (listaUsuarios.contains(user)) {
-            logado = true;
-            return "http://www.google.com";
-//return ("../gerenciamento?faces-redirect=true");
+            return "cadastroProduto";
         } else {
             FacesContext contexto = FacesContext.getCurrentInstance();
             FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Login inválido!", "Usuário ou senha estão errados!");
             contexto.addMessage("idMensagem", mensagem);
-            return "../login?faces-redirect=true";
+            return "login";
         }
 
     }

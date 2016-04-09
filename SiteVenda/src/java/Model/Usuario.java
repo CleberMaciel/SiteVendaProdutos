@@ -1,7 +1,6 @@
 package Model;
 
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /*
@@ -13,7 +12,7 @@ import java.util.Objects;
  *
  * @author cleber
  */
-public class Usuario implements Serializable {
+public class Usuario{
 
     private String user;
     private String pass;
