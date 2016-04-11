@@ -1,4 +1,4 @@
-package Util;   
+package Util;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cleber Maciel
  */
-@WebFilter(filterName = "FiltroAcesso", urlPatterns = {"/faces/gerenciamento.xhtml"})
+@WebFilter(urlPatterns = {"/faces/gerenciamento.xhtml" , "/faces/cadastroCategoria.xhtml" , "/faces/cadastroProduto.xhtml"})
 public class FiltroAcesso implements Filter {
 
     //Obtendo o objeto UsuarioMB da sessão
@@ -30,20 +30,19 @@ public class FiltroAcesso implements Filter {
     private UsuarioBean user;
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response,
-            FilterChain chain)
-            throws IOException, ServletException {
+    public void doFilter(ServletRequest req, ServletResponse res,
+            FilterChain chain) throws IOException, ServletException {
         //Obtem o request e response para utilizacao Web
-        HttpServletRequest req = (HttpServletRequest) request;
-        HttpServletResponse resp = (HttpServletResponse) response;
-        //Se o usuário estiver logado 
-        if (user != null && user.estaLogado()) {
-            //deixa acessar o recurso
-            chain.doFilter(request, response);
+        HttpServletResponse response = (HttpServletResponse) res;
+        HttpServletRequest request = (HttpServletRequest) req;
+        if (!user.estaLogado()
+                && !request.getRequestURI().endsWith("/login.xhtml")
+                && !request.getRequestURI()
+                .contains("/javax.faces.resource/")) {
+            response.sendRedirect(request.getContextPath()
+                    + "/login.xhtml");
         } else {
-            //redireciona para a página de login
-            //getContextPath -> Caminho da aplicação
-            resp.sendRedirect(req.getContextPath() + "/faces/index.xhtml");
+            chain.doFilter(req, res);
         }
     }
 

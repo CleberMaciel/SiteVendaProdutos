@@ -14,7 +14,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author cleber
+ * @author Cleber Maciel
  */
 @Named(value = "mensagens")
 @Dependent
