@@ -6,66 +6,69 @@ package ManageBean;
  * and open the template in the editor.
  */
 import Model.Usuario;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.inject.Named;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author cleber
  */
-@Named
-@SessionScoped
-public class UsuarioBean implements Serializable {
+@ManagedBean(eager = true)
+@ApplicationScoped
+public class UsuarioBean {
 
-    private List<Usuario> listaUsuarios;
-    private boolean logado;
-    private Usuario user;
+    private List<Usuario> listaUsuarios = new ArrayList<>();    
+    private Usuario userSelecionado;
 
     /**
      * Creates a new instance of UsuarioBean
      */
     public UsuarioBean() {
-        listaUsuarios = new ArrayList<>();
-        listaUsuarios.add(new Usuario("adm", "adm"));
 
-        user = new Usuario();
-        logado = false;
-    }
-
-    public boolean estaLogado() {
-        return logado;
-    }
-
-    public Usuario getUser() {
-        return user;
-    }
-
-    public void setUser(Usuario user) {
-        this.user = user;
-    }
-
-    public String verificaLogin() {
-        if (listaUsuarios.contains(user)) {
-            logado = true;
-            return ("gerenciamento?faces-redirect=true");
-        } else {
-            FacesContext contexto = FacesContext.getCurrentInstance();
-            FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    "Login inválido!", "Usuário ou senha estão errados!");
-            contexto.addMessage("idMensagem", mensagem);
-            return "login?faces-redirect=true";
-        }
+        listaUsuarios.add(new Usuario("admin", "admin"));
+        userSelecionado = new Usuario();
 
     }
 
-    public String realizaLogout() {
-        FacesContext.getCurrentInstance().getExternalContext()
-                .invalidateSession();
-        return "/index?faces-redirect=true";
+    public List<Usuario> getListaUsuarios() {
+        return listaUsuarios;
     }
-}
+
+    public void setListaUsuarios(List<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
+    }
+
+    public Usuario getUserSelecionado() {
+        return userSelecionado;
+    }
+
+    public void setUserSelecionado(Usuario userSelecionado) {
+        this.userSelecionado = userSelecionado;
+    }
+
+    public String novoUsuario() {
+        userSelecionado = new Usuario();
+        return ("/admin/formularioCadastro?faces-redirect=true");
+    }
+
+    public String adicionarUsuario() {
+        listaUsuarios.add(userSelecionado);
+        return (this.novoUsuario());
+    }
+
+    public String editarUsuario(Usuario u) {
+        userSelecionado = u;
+        return ("/admin/formularioEdicao?faces-redirect=true");
+    }
+
+    public String atualizarUsuario() {
+        return ("/admin/index?faces-redirect=true");
+    }
+
+    public void removerUser(Usuario u) {
+        listaUsuarios.remove(u);
+    }
+
+}//fim da classe

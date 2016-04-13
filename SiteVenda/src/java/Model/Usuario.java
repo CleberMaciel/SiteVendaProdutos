@@ -1,8 +1,5 @@
 package Model;
 
-
-import java.util.Objects;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,15 +13,21 @@ public class Usuario{
 
     private String user;
     private String pass;
+    
+    private boolean admin;
+
+    
+    public Usuario() {
+    }
 
     public Usuario(String user, String pass) {
         this.user = user;
         this.pass = pass;
+        this.admin = true;
     }
 
-    public Usuario() {
-    }
 
+    
     public String getUser() {
         return user;
     }
@@ -41,23 +44,17 @@ public class Usuario{
         this.pass = pass;
     }
 
-    //métodos de controle de redundancia
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Usuario other = (Usuario) obj;
-        if (!Objects.equals(this.user, other.user)) {
-            return false;
-        }
-        if (!Objects.equals(this.pass, other.pass)) {
-            return false;
-        }
-        return true;
+    public boolean isAdmin() {
+        return admin;
     }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
     
+    public boolean verificaLogin(String login, String senha){
+        return(this.user.equals(login) && this.pass.equals(senha));
+    }
 
 }
