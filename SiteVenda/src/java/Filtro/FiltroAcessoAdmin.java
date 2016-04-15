@@ -1,7 +1,7 @@
-package Util;
+package Filtro;
 
 
-import ManageBean.LoginMB;
+import ManagedBean.LoginMB;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lhries
  */
-@WebFilter(filterName = "FiltroAcessoAdmin", urlPatterns = {"/faces/administrativo/*"})
+@WebFilter(filterName = "FiltroAcessoAdmin", urlPatterns = {"/faces/gerenciamento/*"})
 public class FiltroAcessoAdmin implements Filter {
 
     @Override

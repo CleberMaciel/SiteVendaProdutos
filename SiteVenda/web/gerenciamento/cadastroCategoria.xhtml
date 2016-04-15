@@ -15,22 +15,22 @@
                 <p:outputLabel value="Nome da Categoria: "></p:outputLabel>
                 <p:inputText id="categoria" value="#{categoriaBean.cat.nomeCategoria}"></p:inputText>
 
-                <p:commandButton value="Cadastrar" action="#{categoriaBean.adicionaCategoria()}"  update="msg1" actionListener="#{mensagens.info()}"></p:commandButton>
-                <br/><br/>
-                
-                <p:selectOneMenu  id="msg1" value="#{categoriaBean.cat.qualquer}" filter="true">
-                    <f:selectItems  value="#{categoriaBean.listaCategoria}" />
-                </p:selectOneMenu>
-
+                <p:commandButton value="Cadastrar" action="#{categoriaBean.adicionaCategoria()}"  update="@form" actionListener="#{mensagens.info()}"></p:commandButton>
                 <br/><br/>
 
-                <br/><br/>
-                <p:link outcome="cadastroProduto" value="Cadastro Produto">
+                <p:dataTable value="#{categoriaBean.listaCategoria}" var="listaCategoria">
+                    <p:column headerText="Nome da Cateogira">
+                        <p:outputLabel value="#{listaCategoria.nomeCategoria}"></p:outputLabel>
+                    </p:column>
 
-                </p:link>
+                </p:dataTable>
+                <br/><br/>
+
+                <br/><br/>
+                <p:link value="Voltar" outcome="gerenciarProdutos"></p:link>
+
             </h:form>   
 
         </p:fieldset>
     </h:body>
 </html>
-

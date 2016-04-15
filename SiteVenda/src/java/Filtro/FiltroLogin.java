@@ -1,7 +1,7 @@
-package Util;
+package Filtro;
 
 
-import ManageBean.LoginMB;
+import ManagedBean.LoginMB;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -30,9 +30,9 @@ public class FiltroLogin implements Filter {
         LoginMB auth = (LoginMB) req.getSession().getAttribute("loginMB");
         if(auth!=null && auth.estaLogado()){
             if(auth.eAdmin())
-                resp.sendRedirect(req.getContextPath()+"/faces/administrativo/gerenciamento.xhtml");
+                resp.sendRedirect(req.getContextPath()+"/faces/gerenciamento/index.xhtml");
             else
-                resp.sendRedirect(req.getContextPath()+"/faces/usuario/fecharCarrinho.xhtml");
+                resp.sendRedirect(req.getContextPath()+"/faces/index.xhtml");
         }            
         else
             chain.doFilter(request, response);

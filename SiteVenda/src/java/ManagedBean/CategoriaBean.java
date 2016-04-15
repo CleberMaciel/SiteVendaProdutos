@@ -1,22 +1,20 @@
-package ManageBean;
+package ManagedBean;
 
 
-import Model.Categoria;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
-
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+import Model.Categoria;
 /**
  *
  * @author Cleber Maciel
  * @since 02/04/2016
  * @version 1.0
  */
-@Named(value = "categoriaBean")
-@SessionScoped
-public class CategoriaBean implements Serializable {
+@ManagedBean(eager = true)
+@ApplicationScoped
+public class CategoriaBean {
 
     private Categoria cat = new Categoria();
 
@@ -57,19 +55,9 @@ public class CategoriaBean implements Serializable {
     }
 
     public void adicionaCategoria() {
-        if(existeCategoria(listaCategoria.toString())){
         listaCategoria.add(cat);
         cat = new Categoria();
-        }
-    }
 
-    public boolean existeCategoria(String categoria) {
-        for (Categoria c : listaCategoria) {
-            if (c.getNomeCategoria().equals(categoria)) {
-                return true;
-            }
-        }
-        return false;
     }
 
 }

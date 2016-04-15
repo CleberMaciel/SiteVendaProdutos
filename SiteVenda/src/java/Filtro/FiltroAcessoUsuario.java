@@ -1,7 +1,7 @@
-package Util;
+package Filtro;
 
 
-import ManageBean.LoginMB;
+import ManagedBean.LoginMB;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -31,7 +31,7 @@ public class FiltroAcessoUsuario implements Filter {
         if(auth!=null && auth.estaLogado())
             chain.doFilter(request, response);
         else
-            resp.sendRedirect(req.getContextPath()+"/faces/login.xhtml");
+            resp.sendRedirect(req.getContextPath()+"/faces/index.xhtml");
     }
 
     @Override

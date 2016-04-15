@@ -1,60 +1,56 @@
 package Model;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author cleber
- */
-public class Usuario{
+public class Usuario {
 
-    private String user;
-    private String pass;
-    
+    private String login;
+    private String senha;
+
     private boolean admin;
 
-    
     public Usuario() {
     }
 
-    public Usuario(String user, String pass) {
-        this.user = user;
-        this.pass = pass;
+    public Usuario(String login, String senha) {
+
+        this.login = login;
+        this.senha = senha;
         this.admin = true;
+
     }
 
-
-    
-    public String getUser() {
-        return user;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getPass() {
-        return pass;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public boolean isAdmin() {
         return admin;
     }
 
+    public String getAdminString() {
+        if (admin) {
+            return "SIM";
+        } else {
+            return "NAO";
+        }
+    }
+
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
 
-    
-    public boolean verificaLogin(String login, String senha){
-        return(this.user.equals(login) && this.pass.equals(senha));
+    public boolean verificaLogin(String login, String senha) {
+        return (this.login.equals(login) && this.senha.equals(senha));
     }
-
 }
