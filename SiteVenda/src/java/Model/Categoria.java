@@ -1,11 +1,12 @@
 package Model;
 
+import java.util.List;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Cleber Maciel
@@ -15,19 +16,12 @@ package Model;
 public class Categoria {
 
     private String nomeCategoria;
-    private String qualquer;
+
 
     public Categoria() {
-        
+
     }
 
-    public String getQualquer() {
-        return qualquer;
-    }
-
-    public void setQualquer(String qualquer) {
-        this.qualquer = qualquer;
-    }
 
     public Categoria(String nomeCategoria) {
         this.nomeCategoria = nomeCategoria;

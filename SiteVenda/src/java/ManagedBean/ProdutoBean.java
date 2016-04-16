@@ -17,16 +17,17 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean(eager = true)
 @ApplicationScoped
-public class ProdutoBean{
+public class ProdutoBean {
 
-    private Produto prod = new Produto();
-    private List<Produto> listaProdutos = new ArrayList<>();
+    private Produto prod;
+    private List<Produto> listaProdutos;
 
     /**
      * Creates a new instance of ProdutoBean
      */
     public ProdutoBean() {
-
+        prod = new Produto();
+        listaProdutos = new ArrayList<>();
     }
 
     public Produto getProd() {
@@ -46,12 +47,12 @@ public class ProdutoBean{
     }
 
     public void adicionarProduto() {
-        listaProdutos.add(prod);
-        prod = new Produto();
+        listaProdutos.add(new Produto(prod.getProdutoNome(), prod.getProdutoDescricao(), prod.getProdutoCategoria(), prod.getProdutoCor(), prod.getQuantidade()));
+       
     }
 
-    public void deletarProduto() {
-
+    public void deletarProduto(Produto p) {
+        listaProdutos.remove(p);
     }
 
     public void editarProduto() {

@@ -6,19 +6,26 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Cadastro de Produtos</title>
+
+        <h:outputStylesheet library="awesome" name="css/font-awesome.css" />
+
     </h:head>
     <h:body>
-        <h:form style="margin-bottom: 35px;">
+        <h:form>
             <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
             <p:panelGrid columns="2">
+
                 <p:outputLabel value="Nome Produto"></p:outputLabel>
-                <p:inputText value="#{produtoBean.prod.produtoNome}"></p:inputText>
+                <p:inputText value="#{produtoBean.prod.produtoNome}" required="true"></p:inputText>
 
                 <p:outputLabel value="Descrição"></p:outputLabel>
                 <p:inputText value="#{produtoBean.prod.produtoDescricao}"></p:inputText>
 
                 <p:outputLabel value="Cor"></p:outputLabel>
                 <p:inputText value="#{produtoBean.prod.produtoCor}"></p:inputText>            
+
+                <p:outputLabel value="Quantidade em estoque"></p:outputLabel>
+                <p:inputText value="#{produtoBean.prod.quantidade}" ></p:inputText>
 
                 <p:outputLabel value="Categoria"></p:outputLabel>
 
@@ -41,17 +48,28 @@
                     <p:outputLabel value="#{listaProdutos.produtoCor}"></p:outputLabel>
                 </p:column>
 
+                <p:column headerText="Quantidade em estoque">
+                    <p:outputLabel value="#{listaProdutos.quantidade}"></p:outputLabel>
+                </p:column>
+
                 <p:column headerText="Categoria">
                     <p:outputLabel value="#{listaProdutos.produtoCategoria}"></p:outputLabel>
                 </p:column>
 
                 <p:column headerText="Descrição">
-                    <p:outputLabel value="#{listaProdutos.produtoCategoria}"></p:outputLabel>
+                    <p:commandButton value="Descrição" type="button" onclick="PF('descri').show();"/>
+
+                    <p:dialog header="Descrição" widgetVar="descri" modal="true" height="300">
+                        <p:outputLabel value="#{listaProdutos.produtoDescricao}"></p:outputLabel>
+
+                    </p:dialog>
                 </p:column>
 
                 <p:column headerText="Funções">
-                    <p:commandButton value="Deletar Produto" actionListener="#{mensagens.infoDeletarProdutos()}" action="#{produtoBean.deletarProduto()}" style="width: 49%;"></p:commandButton>
-                    <p:commandButton value="Editar Produto" actionListener="#{mensagens.infoEditarProdutos()}" action="#{produtoBean.editarProduto()}" style="width: 49%;"></p:commandButton>
+                    <p:panelGrid columns="2">
+                        <p:commandButton value="Remover" action="#{produtoBean.deletarProduto(listaProdutos)}" update="@form"/>
+                        <p:commandButton value="Editar" actionListener="#{mensagens.infoEditarProdutos()}" action="#{produtoBean.editarProduto()}" update="@form"></p:commandButton>
+                    </p:panelGrid>
                 </p:column>
 
             </p:dataTable>

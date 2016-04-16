@@ -16,8 +16,21 @@ public class Produto {
     private Categoria produtoCategoria;
     private String produtoCor;
 
+    private int quantidade;
+
     public Produto() {
+        quantidade = 1;
     }
+
+    public Produto(String produtoNome, String produtoDescricao, Categoria produtoCategoria, String produtoCor, int quantidade) {
+        this.produtoNome = produtoNome;
+        this.produtoDescricao = produtoDescricao;
+        this.produtoCategoria = produtoCategoria;
+        this.produtoCor = produtoCor;
+        this.quantidade = 1;
+    }
+    
+    
 
     public String getProdutoNome() {
         return produtoNome;
@@ -53,6 +66,14 @@ public class Produto {
 
     public String retornaNomeCategoria() {
         return produtoCategoria.getNomeCategoria();
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
 }

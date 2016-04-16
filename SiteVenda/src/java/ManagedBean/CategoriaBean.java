@@ -19,7 +19,8 @@ public class CategoriaBean {
     private Categoria cat = new Categoria();
 
     List<Categoria> listaCategoria = new ArrayList<>();
-
+    
+    
     public CategoriaBean() {
         listaCategoria.add(new Categoria("Mouse"));
         listaCategoria.add(new Categoria("Teclado"));
