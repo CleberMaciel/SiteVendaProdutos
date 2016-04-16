@@ -7,11 +7,25 @@
     <h:head>
         <title>Login - Mercado Digital</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     </h:head>
 
     <h:body>
-        <ui:include src="templates/header.xhtml"/>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.xhtml">Mercado Digital</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.xhtml">Página Inicial</a></li>
+                    <li><a href="produtos.xhtml">Produtos</a></li>
+                    <li><a href="carrinho-de-compras.xhtml">Carrinho de Compras</a></li>
+                    <li><a href="login.xhtml">Login / Cadastre-se</a></li>
+                    <li><a href="area-restrita.xhtml">Área Restrita</a></li>
+                </ul>
+            </div>
+        </nav>
+
         <div id="container">
             <div class="row">
                 <div class="col-md-12">
