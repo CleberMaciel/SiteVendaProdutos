@@ -8,56 +8,96 @@
         <title>Login - Mercado Digital</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>    
+        <link href="css/settings.css" rel="stylesheet" type="text/css"/>    
+        <link href="css/footer.css" rel="stylesheet" type="text/css"/>  
     </h:head>
 
     <h:body>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.xhtml">Mercado Digital</a>
+                    <a class="navbar-brand" href="faces/index.xhtml">Mercado Digital</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.xhtml">Página Inicial</a></li>
-                    <li><a href="produtos.xhtml">Produtos</a></li>
-                    <li><a href="carrinho-de-compras.xhtml">Carrinho de Compras</a></li>
-                    <li><a href="login.xhtml">Login / Cadastre-se</a></li>
-                    <li><a href="area-restrita.xhtml">Área Restrita</a></li>
+                    <li class="active"><a href="faces/index.xhtml">Página Inicial</a></li>
+                    <li><a href="faces/produtos.xhtml">Produtos</a></li>
+                    <li><a href="faces/carrinho-de-compras.xhtml">Carrinho de Compras</a></li>
+                    <li><a href="faces/login.xhtml">Login / Cadastre-se</a></li>
+                    <li><a href="faces/area-restrita.xhtml">Área Restrita</a></li>
                 </ul>
             </div>
         </nav>
 
-        <div id="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-5">
-                        <h1 style="text-align: center;">Tem cadastro? Faça seu login!</h1>
-                        <div>
-                            <h:form style="width: 50%;margin: 40px auto;">
-                                <p:outputLabel value="Usuario: " for="idUser" style="margin-left: 100px;"></p:outputLabel>
-                                <p:inputText value="#{usuarioBean.user.user}" id="idUser" style="width: 100%"></p:inputText><br/>
+        <div class="leave-msg dark-back">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="main-title">
+                                <h2><span>Tem cadastro?</span><br/> Faça login!</h2>
+                                <p>Faça login e confira nossos produtos com excelentes preços.</p>
+                            </div>
+                            <div>
+                                <h:form>
+                                    <p:outputLabel value="Usuario: " for="idUser"></p:outputLabel>
+                                    <p:inputText value="#{usuarioBean.user.user}" id="idUser" class="width-input-100"></p:inputText><br/>
 
-                                <p:outputLabel value="Senha: " for="idPass" style="margin-left: 100px;"></p:outputLabel>
-                                <p:inputText value="#{usuarioBean.user.pass}" id="idPass" style="width: 100%"></p:inputText><br/>
+                                    <p:outputLabel value="Senha: " for="idPass"></p:outputLabel>
+                                    <p:inputText value="#{usuarioBean.user.pass}" id="idPass" class="width-input-100"></p:inputText><br/>
 
-                                <h:commandButton value="Login" action="#{usuarioBean.verificaLogin()}" style="margin: 10px 100px;"></h:commandButton>
-                            </h:form>
+                                    <h:commandButton value="Login" action="#{usuarioBean.verificaLogin()}" class="btn-login-cadastro"></h:commandButton>
+                                </h:form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="main-title">
+                                <h2>Não <span>tem cadastro?</span> Cadastre-se, agora!</h2>
+                                <p>Cadastre-se e usufrua dos nossos produtos com excelentes preços.</p>
+                            </div>
+                            <div>
+                                <h:form>
+                                    <div class="col-md-6 margin-bottom-30-form">
+                                        <p:outputLabel value="Nome completo: " for="idNome"></p:outputLabel>
+                                        <p:inputText value="" id="idNome" class="width-input-100"></p:inputText><br/>
+
+                                        <p:outputLabel value="Endereço: " for="idEndereco"></p:outputLabel>
+                                        <p:inputText value="" id="idEndereco" class="width-input-100"></p:inputText><br/>
+                                        
+                                        <p:outputLabel value="Telefone: " for="idTelefone"></p:outputLabel>
+                                        <p:inputText value="" id="idTelefone" class="width-input-100"></p:inputText><br/>
+                                    </div>
+                                    <div class="col-md-6 margin-bottom-30-form">
+                                        <p:outputLabel value="E-mail: " for="idEmail"></p:outputLabel>
+                                        <p:inputText value="" id="idEmail" class="width-input-100"></p:inputText><br/>
+                                        
+                                        <p:outputLabel value="Nome de usuário: " for="idUser"></p:outputLabel>
+                                        <p:inputText value="" id="idUser" class="width-input-100"></p:inputText><br/>
+                                        
+                                        <p:outputLabel value="Senha: " for="idPass"></p:outputLabel>
+                                        <p:inputText value="" id="idPass" class="width-input-100"></p:inputText><br/>
+                                    </div>
+                                    <h:commandButton value="Cadastre-se" action="#{usuarioBean.verificaLogin()}" class="btn-login-cadastro"></h:commandButton>
+                                </h:form>
+                            </div>   
                         </div>
                     </div>
-                    <div class="col-md-7">
-                        <h1>Não tem cadastro? Faça seu cadastro conosco!</h1>
-                        <h:form style="width: 50%;margin: 40px auto;">
-                            <p:outputLabel value="Usuario: " for="idUser"></p:outputLabel>
-                            <p:inputText value="#{usuarioBean.user.user}" id="idUser"></p:inputText><br/>
+                </div>
 
-                            <p:outputLabel value="Senha: " for="idPass"></p:outputLabel>
-                            <p:inputText value="#{usuarioBean.user.pass}" id="idPass"></p:inputText><br/>
+            </div>
+        </div>
 
-                            <h:commandButton value="Login" action="#{usuarioBean.verificaLogin()}"></h:commandButton>
-                        </h:form>    
+        <footer class="footer" id="footer">
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="copyrights">Copyright &copy; 2016 - Desenvolvido por <a href="https://www.facebook.com/clebermacieljr">Cleber Maciel</a> e <a href="https://www.facebook.com/matheusouzaaaa">Matheus Souza</a></span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     </h:body>
 </html>
 

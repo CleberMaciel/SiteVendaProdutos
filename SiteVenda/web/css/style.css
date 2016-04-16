@@ -68,3 +68,45 @@
     text-decoration: none;
     transition: 3s;
 }
+
+.margin-bottom-produtos{
+    margin-bottom: 30px !important;
+}
+
+.leave-msg{
+    padding: 90px 0;
+}
+
+.width-input-100{
+    width: 100%;
+}
+
+.width-input-50{
+    width: 50%;
+}
+
+.btn-login-cadastro{
+    margin: 11px auto;
+    color: #fff;
+    background: #000;
+    border: none;
+    padding: 10px;
+    font-size: 26px;
+    display: block;
+    transition: 2s;
+}
+
+.btn-login-cadastro:hover{
+    margin: 11px auto;
+    color: #fff;
+    background: #BDB323;
+    border: none;
+    padding: 10px;
+    font-size: 26px;
+    display: block;
+    transition: 2s;
+}
+
+.margin-bottom-30-form{
+    margin-bottom: 30px;
+}
