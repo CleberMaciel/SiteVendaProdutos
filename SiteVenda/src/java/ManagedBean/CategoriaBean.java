@@ -1,11 +1,11 @@
 package ManagedBean;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import Model.Categoria;
+
 /**
  *
  * @author Cleber Maciel
@@ -36,13 +36,6 @@ public class CategoriaBean {
     }
 
     public List<Categoria> getListaCategoria() {
-        if (listaCategoria == null) {
-            listaCategoria = new ArrayList<>();
-            listaCategoria.add(new Categoria("Mouse"));
-            listaCategoria.add(new Categoria("Teclado"));
-
-        }
-
         return listaCategoria;
     }
 
@@ -58,6 +51,16 @@ public class CategoriaBean {
         listaCategoria.add(cat);
         cat = new Categoria();
 
+    }
+
+    public String buscaCategorianome(String nomeCat) {
+        for (int i = 0; i < listaCategoria.size(); i++) {
+            if (listaCategoria.get(i).getNomeCategoria().equals(nomeCat)) {
+                return nomeCat;
+
+            }
+        }
+        return null;
     }
 
 }

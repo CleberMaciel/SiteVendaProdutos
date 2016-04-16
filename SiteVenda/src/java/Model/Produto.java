@@ -51,5 +51,8 @@ public class Produto {
         this.produtoCor = produtoCor;
     }
 
-   
+    public String retornaNomeCategoria() {
+        return produtoCategoria.getNomeCategoria();
+    }
+
 }

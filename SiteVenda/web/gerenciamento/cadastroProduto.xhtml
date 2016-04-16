@@ -8,7 +8,6 @@
         <title>Cadastro de Produtos</title>
     </h:head>
     <h:body>
-        Cadastro de Produtos
         <h:form style="margin-bottom: 35px;">
             <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
             <p:panelGrid columns="2">
@@ -23,17 +22,16 @@
 
                 <p:outputLabel value="Categoria"></p:outputLabel>
 
-                <p:selectOneMenu  id="msg1" value="#{produtoBean.prod.produtoCategoria}" filter="true">
-                     <f:selectItem itemLabel="Selecione uma Categoria: " itemValue=""/>
-                    <f:selectItems  value="#{categoriaBean.listaCategoria}" />
+                <p:selectOneMenu  id="categoria" value="#{produtoBean.prod.produtoCategoria}" filter="true" converter="categoriaConverter" >
+                    <f:selectItems  value="#{categoriaBean.listaCategoria}" var="cat" itemValue="#{cat}"  itemLabel="#{cat.nomeCategoria}"/>
+
                 </p:selectOneMenu>
 
                 <p:commandButton value="Cadastrar Produto" actionListener="#{mensagens.infoProdutos()}" update="@form" action="#{produtoBean.adicionarProduto()}"></p:commandButton>
 
             </p:panelGrid>
 
-
-            <p:dataTable value="#{produtoBean.listaProdutos}" var="listaProdutos">
+            <p:dataTable value="#{produtoBean.listaProdutos}" var="listaProdutos" paginator="true" rows="10">
 
                 <p:column headerText="Nome do Produto">
                     <p:outputLabel value="#{listaProdutos.produtoNome}"></p:outputLabel>
@@ -44,18 +42,18 @@
                 </p:column>
 
                 <p:column headerText="Categoria">
-                    <p:outputLabel value="#{listaProdutos.produtoCategoria.nomeCategoria}"></p:outputLabel>
+                    <p:outputLabel value="#{listaProdutos.produtoCategoria}"></p:outputLabel>
                 </p:column>
 
                 <p:column headerText="Descrição">
-                    <p:outputLabel value="#{listaProdutos.produtoDescricao}"></p:outputLabel>
+                    <p:outputLabel value="#{listaProdutos.produtoCategoria}"></p:outputLabel>
                 </p:column>
 
                 <p:column headerText="Funções">
                     <p:commandButton value="Deletar Produto" actionListener="#{mensagens.infoDeletarProdutos()}" action="#{produtoBean.deletarProduto()}" style="width: 49%;"></p:commandButton>
                     <p:commandButton value="Editar Produto" actionListener="#{mensagens.infoEditarProdutos()}" action="#{produtoBean.editarProduto()}" style="width: 49%;"></p:commandButton>
                 </p:column>
-                
+
             </p:dataTable>
 
 
