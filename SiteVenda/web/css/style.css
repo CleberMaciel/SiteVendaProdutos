@@ -27,6 +27,8 @@
     background: #000;
     padding: 10px;
     text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
     /*position: relative;*/
     /*margin: 0px 110px;*/
 }
@@ -35,6 +37,8 @@
     background: #C8C9D9;
     padding: 10px;
     text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
     /*position: relative;*/
     /*margin: 0px 110px;*/
 }
@@ -55,7 +59,7 @@
 .comment{
     display: block;
     margin-top: 18px;
-    margin-left: 100px;
+    /*margin-left: 100px;*/
 }
 
 .copyrights a{
@@ -94,6 +98,8 @@
     font-size: 26px;
     display: block;
     transition: 2s;
+    border-radius: 5px;
+    text-transform: uppercase;
 }
 
 .btn-login-cadastro:hover{
@@ -105,8 +111,26 @@
     font-size: 26px;
     display: block;
     transition: 2s;
+    border-radius: 5px;
+    text-transform: uppercase;
 }
 
 .margin-bottom-30-form{
     margin-bottom: 30px;
+}
+
+.btn-comprar-produtos-detalhes{
+    color: #fff;
+    background: #000;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+.btn-comprar-produtos-detalhes:hover{
+    color: #fff;
+    background: #C8C9D9;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase; 
 }

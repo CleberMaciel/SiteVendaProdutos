@@ -259,7 +259,7 @@ img:hover {transition: background-color 0.5s ease; }
 /*..... LATEST NEWS ......*/
 .latest-news{ padding:90px 0; }
 .latest-news .post{}
-.latest-news .post .detail{ background:#fff; padding: 20px; position:relative;}
+.latest-news .post .detail{ background:#fff; padding: 20px; position:relative;height: 250px;}
 .latest-news .post .detail img{width: 56px !important; position: absolute; top: 0; border-radius: 100% !important; border: solid 4px #fff; margin: -28px 0 0 0;}
 .latest-news .post .detail h4{ font-weight:400; margin:25px 0 0 0;}
 .latest-news .post .detail p{ margin:4px 0 0 0;}
