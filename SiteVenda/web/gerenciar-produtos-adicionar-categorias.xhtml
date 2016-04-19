@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Adicionar Categorias - Mercado Digital</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>    
+        <link href="css/settings.css" rel="stylesheet" type="text/css"/>    
+        <link href="css/footer.css" rel="stylesheet" type="text/css"/>  
+    </h:head>
+
+    <h:body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="faces/index.xhtml">Mercado Digital</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="faces/index.xhtml">Página Inicial</a></li>
+                    <li><a href="faces/produtos.xhtml">Produtos</a></li>
+                    <li><a href="faces/carrinho-de-compras.xhtml">Carrinho de Compras</a></li>
+                    <li><a href="faces/login.xhtml">Login / Cadastre-se</a></li>
+                    <li><a href="faces/area-restrita.xhtml">Área Restrita</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="leave-msg dark-back">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <div class="main-title">
+                                <h2><span>Adicionar</span> Categorias</h2>
+                                <p>Administrador, nesta página você poderá adicionar categorias ao sistema.</p>
+                            </div>
+                            <div>
+                                <h:form>
+                                    <div class="col-md-12 margin-bottom-30-form">
+                                        <p:outputLabel value="Nome produto: " for="idNome"></p:outputLabel>
+                                        <p:inputText value="" id="idNome" class="width-input-100"></p:inputText><br/>
+                                    </div>
+                                    <h:commandButton value="Cadastrar Categoria" action="#{usuarioBean.verificaLogin()}" class="btn-login-cadastro"></h:commandButton>
+                                </h:form>
+                            </div>
+                            <div class="main-title" style="margin-top: 50px;">
+                                <h2><span>Listagem de</span> Categorias</h2>
+                                <p>Administrador, nesta parte você verá as categorias do sistema.</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table border="1" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Categoria</th>
+                                                <th>Operações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Teste</td>
+                                                <td class="width-200"><span class="botao-administrador"><a href="">Editar</a></span><span class="botao-administrador" style="margin-left: 43px;"><a href="">Remover</a></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="footer" id="footer">
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="copyrights">Copyright &copy; 2016 - Desenvolvido por <a href="https://www.facebook.com/clebermacieljr">Cleber Maciel</a> e <a href="https://www.facebook.com/matheusouzaaaa">Matheus Souza</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </h:body>
+</html>
+
