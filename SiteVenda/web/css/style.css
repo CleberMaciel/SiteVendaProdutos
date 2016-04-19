@@ -134,3 +134,44 @@
     text-decoration: none;
     text-transform: uppercase; 
 }
+
+.botao-administrador a{
+    color: #fff;
+    background: #000;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.botao-administrador a:hover{
+    color: #fff;
+    background: #C8C9D9;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.display-block-margin-bottom-25{
+    display: block;
+    margin-bottom: 25px !important;
+}
+
+.width-200{
+    width: 200px !important;
+}
+
+.h2-title{
+    font-size: 29px !important;
+    margin-bottom: 3px !important;
+    margin-top: 75px !important;
+}
+
+.margin-bottom-20{
+    margin-bottom: 20px !important;
+}
+
+.margin-left-73{
+    margin-left: 73px !important;
+}
