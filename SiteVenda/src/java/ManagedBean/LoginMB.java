@@ -1,6 +1,7 @@
 package ManagedBean;
 
 import Model.Usuario;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -9,7 +10,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class LoginMB {
+public class LoginMB implements Serializable{
 
     private String login, senha;
     private Usuario usuarioLogado;

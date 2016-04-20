@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import Model.Categoria;
+import java.io.Serializable;
 
 /**
  *
@@ -14,18 +15,18 @@ import Model.Categoria;
  */
 @ManagedBean(eager = true)
 @ApplicationScoped
-public class CategoriaBean {
+public class CategoriaBean implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private Categoria cat = new Categoria();
 
     List<Categoria> listaCategoria = new ArrayList<>();
-    
-    
+
     public CategoriaBean() {
-        listaCategoria.add(new Categoria("Mouse"));
-        listaCategoria.add(new Categoria("Teclado"));
-        listaCategoria.add(new Categoria("Monitor"));
-        listaCategoria.add(new Categoria("Notebook"));
+        listaCategoria.add(new Categoria(1L, "Mouse"));
+        listaCategoria.add(new Categoria(2L, "Teclado"));
+        listaCategoria.add(new Categoria(3L, "Monitor"));
+        listaCategoria.add(new Categoria(4L, "Notebook"));
     }
 
     public Categoria getCat() {
@@ -40,7 +41,7 @@ public class CategoriaBean {
         return listaCategoria;
     }
 
-    public void setListaCategoria(ArrayList<Categoria> listaCategoria) {
+    public void setListaCategoria(List<Categoria> listaCategoria) {
         this.listaCategoria = listaCategoria;
     }
 

@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Objects;
+
 public class Usuario {
 
     private String login;
@@ -46,6 +48,8 @@ public class Usuario {
         }
     }
 
+    
+    
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
@@ -53,4 +57,31 @@ public class Usuario {
     public boolean verificaLogin(String login, String senha) {
         return (this.login.equals(login) && this.senha.equals(senha));
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.login);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (!Objects.equals(this.login, other.login)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

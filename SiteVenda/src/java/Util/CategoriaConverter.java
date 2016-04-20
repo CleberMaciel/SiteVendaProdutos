@@ -5,33 +5,22 @@
  */
 package Util;
 
-import ManagedBean.CategoriaBean;
+import Model.Categoria;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import org.omnifaces.converter.SelectItemsConverter;
 
 /**
  *
- * @author Cleber Maciel
- * @since 16/04/2016
+ * @author cleber
  */
-@FacesConverter(value = "categoriaConverter")
-public class CategoriaConverter implements Converter {
-
-    //Converte a categoria em String.
-    @Override
-    public String getAsString(FacesContext fc, UIComponent uic, Object o) {
-        return o.getClass().getName();
+@FacesConverter("categoriaConverter")
+public class CategoriaConverter extends SelectItemsConverter{
+ 
+       @Override
+    public String getAsString(FacesContext context, UIComponent component, Object value) {
+        Long id = (value instanceof Categoria) ? ((Categoria) value).getId() : null;
+        return (id != null) ? String.valueOf(id) : null;
     }
-
-    //Converte a String Categoria em Objeto 
-    @Override
-    public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
-        FacesContext context = FacesContext.getCurrentInstance();
-        CategoriaBean categoriaBean = (CategoriaBean) context.getELContext().getELResolver().getValue(context.getELContext(), null, "categoriaBean");
-
-        return categoriaBean.buscaCategorianome(string);
-    }
-
 }
