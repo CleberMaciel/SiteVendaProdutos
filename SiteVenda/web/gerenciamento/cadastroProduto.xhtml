@@ -66,6 +66,8 @@
                 </p:column>
 
                 <p:column headerText="Funções">
+                                       
+
                     <p:panelGrid columns="2">
                         <p:commandButton value="Remover" action="#{produtoBean.deletarProduto(listaProdutos)}" update="@form"/>
                         <p:commandButton value="Editar" actionListener="#{mensagens.infoEditarProdutos()}" action="#{produtoBean.editarProduto()}" update="@form"></p:commandButton>
@@ -73,8 +75,7 @@
                 </p:column>
 
             </p:dataTable>
-
-
+            
         </h:form>
         <p:link outcome="index" value="Voltar para pagina inicial" style="text-decoration: none; text-transform: capitalize; color: #000; background: rgb(208, 208, 208); font-family: Arial,sans-serif; font-weight: 600; padding: 12px; border: 1px solid #c3c3c3; border-radius: 5px; position: relative;"></p:link>
     </h:body>

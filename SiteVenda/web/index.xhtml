@@ -2,28 +2,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Bem vindo</title>
-
+        <title>Facelet Title</title>
     </h:head>
-
     <h:body>
+        <h:link outcome="login" value="Login"></h:link>
 
         <h:form>
-            <p:panelGrid columns="2">
-                <p:outputLabel value="Usuario: " for="idUsuario"/>
-                <p:inputText value="#{loginMB.login}" id="idUsuario"/>
-                <p:outputLabel value="Senha: " for="idSenha"/>
-                <p:password value="#{loginMB.senha}" id="idSenha"/>
-                <p:commandButton value="Login" action="#{loginMB.verificaLogin()}" />
-            </p:panelGrid>
-            <h:messages id="idMensagem" showDetail="true" errorClass="mensagem"/>
-            <p:link value="Acessar area de usuario" outcome="/usuario/index"></p:link>
+            <p:dataGrid var="produtos" value="#{produtoBean.listaProdutos}" columns="3" layout="grid"
+                        rows="12" paginator="false" id="produtos">
+
+                <p:panel>
+                    <p:panelGrid columns="1">
+                        <p:outputLabel value="#{produtos.produtoNome}"></p:outputLabel>
+                        <p:outputLabel value="#{produtos.produtoDescricao}"></p:outputLabel>
+                        <p:commandButton value="Comprar" action="#{carrinhoDeCompraBean.addCarrinho(produtos)}"></p:commandButton>
+                    </p:panelGrid>
+                </p:panel>
+            </p:dataGrid>
+
         </h:form>
 
     </h:body>
-
 </html>
-
 

@@ -19,7 +19,7 @@ public class Produto {
     private int quantidade;
 
     public Produto() {
-        quantidade = 1;
+    
     }
 
     public Produto(String produtoNome, String produtoDescricao, Categoria produtoCategoria, String produtoCor, int quantidade) {
@@ -27,7 +27,7 @@ public class Produto {
         this.produtoDescricao = produtoDescricao;
         this.produtoCategoria = produtoCategoria;
         this.produtoCor = produtoCor;
-        this.quantidade = 1;
+        this.quantidade = quantidade;
     }
     
     
