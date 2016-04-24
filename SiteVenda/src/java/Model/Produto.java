@@ -15,22 +15,23 @@ public class Produto {
     private String produtoDescricao;
     private Categoria produtoCategoria;
     private String produtoCor;
-
+    private double valor;
     private int quantidade;
 
     public Produto() {
-    
+
     }
 
-    public Produto(String produtoNome, String produtoDescricao, Categoria produtoCategoria, String produtoCor, int quantidade) {
+    public Produto(String produtoNome, String produtoDescricao, Categoria produtoCategoria, String produtoCor, double valor, int quantidade) {
         this.produtoNome = produtoNome;
         this.produtoDescricao = produtoDescricao;
         this.produtoCategoria = produtoCategoria;
         this.produtoCor = produtoCor;
+        this.valor = valor;
         this.quantidade = quantidade;
     }
-    
-    
+
+
 
     public String getProdutoNome() {
         return produtoNome;
@@ -76,4 +77,13 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    
 }

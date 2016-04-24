@@ -10,7 +10,8 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class LoginMB implements Serializable{
+public class LoginMB implements Serializable{   
+
 
     private String login, senha;
     private Usuario usuarioLogado;
@@ -74,7 +75,7 @@ public class LoginMB implements Serializable{
     public String realizaLogout() {
         usuarioLogado = null;
         //FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return ("/index?faces-redirect=true");
     }
 

@@ -53,8 +53,7 @@ public class UsuarioMB {
         usuarioSelecionado = u;
         return("/gerenciamento/formularioEdicao?faces-redirect=true");
     }
-    public String atualizarUsuario()
-    {
+    public String atualizarUsuario(){
         return("/gerenciamento/index?faces-redirect=true");
     }
 

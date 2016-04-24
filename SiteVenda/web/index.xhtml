@@ -5,13 +5,13 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Pagina Inicial</title>
     </h:head>
     <h:body>
         <h:link outcome="login" value="Login"></h:link>
 
         <h:form>
-            <p:dataGrid var="produtos" value="#{produtoBean.listaProdutos}" columns="3" layout="grid"
+            <p:dataGrid emptyMessage="Não há produtos cadastros. " var="produtos" value="#{produtoBean.listaProdutos}" columns="3" layout="grid"
                         rows="12" paginator="false" id="produtos">
 
                 <p:panel>
@@ -22,7 +22,7 @@
                     </p:panelGrid>
                 </p:panel>
             </p:dataGrid>
-
+            <p:commandButton value="Visualizar carrinho" action="carrinho"/>
         </h:form>
 
     </h:body>

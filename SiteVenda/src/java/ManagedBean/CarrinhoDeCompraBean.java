@@ -5,6 +5,7 @@
  */
 package ManagedBean;
 
+import Model.Item;
 import Model.Produto;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,33 +20,27 @@ import javax.faces.bean.ManagedBean;
 @ApplicationScoped
 public class CarrinhoDeCompraBean {
 
-    private List<Produto> carrinhoCompras;
+    private List<Item> listaItens;
 
     public CarrinhoDeCompraBean() {
-
-        carrinhoCompras = new ArrayList<>();
+        listaItens = new ArrayList<>();
     }
 
-    public List<Produto> getCarrinhoCompras() {
-        return carrinhoCompras;
+    public List<Item> getListaItens() {
+        return listaItens;
     }
 
-    public void setCarrinhoCompras(List<Produto> carrinhoCompras) {
-        this.carrinhoCompras = carrinhoCompras;
+    public void setListaItens(List<Item> listaItens) {
+        this.listaItens = listaItens;
     }
 
     public String addCarrinho(Produto p) {
-        carrinhoCompras.add(p);
-        return ("/faces/carrinho");
-    }
-
-    public String finalizar(Produto p) {
-        ProdutoBean pb = new ProdutoBean();
-        int quantidade = 1;
-
-        int total = p.getQuantidade();
-        pb.getProd().setQuantidade(total);
-
-        return ("index");
+        Item item = new Item();
+        item.setP(p);
+        item.setQuantidade(1);
+        item.setValorParcial(0);
+        p.setQuantidade(p.getQuantidade() - item.getQuantidade());
+        listaItens.add(item);
+        return ("carrinho");
     }
 }

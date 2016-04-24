@@ -28,6 +28,7 @@ public class ProdutoBean {
     public ProdutoBean() {
         prod = new Produto();
         listaProdutos = new ArrayList<>();
+
     }
 
     public Produto getProd() {
@@ -47,15 +48,20 @@ public class ProdutoBean {
     }
 
     public void adicionarProduto() {
-        listaProdutos.add(new Produto(prod.getProdutoNome(), prod.getProdutoDescricao(), prod.getProdutoCategoria(), prod.getProdutoCor(), prod.getQuantidade()));
-       
+        listaProdutos.add(new Produto(prod.getProdutoNome(), prod.getProdutoDescricao(), prod.getProdutoCategoria(), prod.getProdutoCor(), prod.getValor(), prod.getQuantidade()));
+
     }
 
     public void deletarProduto(Produto p) {
         listaProdutos.remove(p);
     }
 
-    public void editarProduto() {
-
+    public String editarProduto(Produto p) {
+        prod = p;
+        return ("/gerenciamento/editarProduto?faces-redirect=true");
+    }
+    
+    public String atualizar(){
+        return ("/gerenciamento/index?faces-redirect=true");
     }
 }

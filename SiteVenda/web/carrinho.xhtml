@@ -8,37 +8,31 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:dataTable value="#{carrinhoDeCompraBean.carrinhoCompras}" var="listaProdutos" paginator="true" rows="10">
+            <p:dataTable value="#{carrinhoDeCompraBean.listaItens}" var="listaItens" paginator="true" rows="10">
 
                 <p:column headerText="Nome do Produto">
-                    <p:outputLabel value="#{listaProdutos.produtoNome}"></p:outputLabel>
+                    <p:outputLabel value="#{listaItens.p.produtoNome}"></p:outputLabel>
                 </p:column>
 
                 <p:column headerText="Cor">
-                    <p:outputLabel value="#{listaProdutos.produtoCor}"></p:outputLabel>
+                    <p:outputLabel value="#{listaItens.p.produtoCor}"></p:outputLabel>
                 </p:column>
 
                 <p:column headerText="Quantidade em estoque">
-                    <p:outputLabel value="#{listaProdutos.quantidade}"></p:outputLabel>
+                    <p:outputLabel value="#{listaItens.quantidade}"></p:outputLabel>
                 </p:column>
 
                 <p:column headerText="Categoria">
-                    <p:outputLabel value="#{listaProdutos.produtoCategoria}"></p:outputLabel>
+                    <p:outputLabel value="#{listaItens.p.produtoCategoria}"></p:outputLabel>
                 </p:column>
 
                 <p:column headerText="Descrição">
                     <p:commandButton value="Descrição" type="button" onclick="PF('descri').show();"/>
 
                     <p:dialog header="Descrição" widgetVar="descri" modal="true" height="300">
-                        <p:outputLabel value="#{listaProdutos.produtoDescricao}"></p:outputLabel>
-
+                        <p:outputLabel value="#{listaItens.p.produtoDescricao}"></p:outputLabel>
                     </p:dialog>
                 </p:column>
-                <p:column headerText="Finaliza">
-                    <p:commandButton value="Finalizar" action="#{carrinhoDeCompraBean.finalizar(listaProdutos)}"/>
-
-                </p:column>
-
             </p:dataTable>
             <p:commandButton value="Voltar" action="index"/>
 
