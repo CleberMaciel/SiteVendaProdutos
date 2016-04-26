@@ -1,0 +1,177 @@
+.imagem-produtos{
+    width: 100%;
+}
+
+.detail h4{
+    text-align: center;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.detail h4 a{
+    color: #000;
+    text-decoration: none;
+}
+.detail h4 a:hover{
+    color: #c1c1c1;
+    text-decoration: none;
+}
+
+.detail p{
+    text-align: justify;
+    display: block;
+}
+
+.detail span a{
+    color: #fff;
+    background: #000;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    /*position: relative;*/
+    /*margin: 0px 110px;*/
+}
+.detail span a:hover{
+    color: #fff;
+    background: #C8C9D9;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    /*position: relative;*/
+    /*margin: 0px 110px;*/
+}
+
+.main-title h2{
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.main-title p{
+    text-align: center;
+    margin-bottom: 65px;
+    font-size: 20px;
+}
+
+.comment{
+    display: block;
+    margin-top: 18px;
+    /*margin-left: 100px;*/
+}
+
+.copyrights a{
+    color: #fff;
+    text-decoration: none;
+    transition: 3s;
+}
+.copyrights a:hover{
+    color: #BDB323;
+    text-decoration: none;
+    transition: 3s;
+}
+
+.margin-bottom-produtos{
+    margin-bottom: 30px !important;
+}
+
+.leave-msg{
+    padding: 90px 0;
+}
+
+.width-input-100{
+    width: 100%;
+}
+
+.width-input-50{
+    width: 50%;
+}
+
+.btn-login-cadastro{
+    margin: 11px auto;
+    color: #fff;
+    background: #000;
+    border: none;
+    padding: 10px;
+    font-size: 26px;
+    display: block;
+    transition: 2s;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.btn-login-cadastro:hover{
+    margin: 11px auto;
+    color: #fff;
+    background: #BDB323;
+    border: none;
+    padding: 10px;
+    font-size: 26px;
+    display: block;
+    transition: 2s;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.margin-bottom-30-form{
+    margin-bottom: 30px;
+}
+
+.btn-comprar-produtos-detalhes{
+    color: #fff;
+    background: #000;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+.btn-comprar-produtos-detalhes:hover{
+    color: #fff;
+    background: #C8C9D9;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase; 
+}
+
+.botao-administrador a{
+    color: #fff;
+    background: #000;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.botao-administrador a:hover{
+    color: #fff;
+    background: #C8C9D9;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.display-block-margin-bottom-25{
+    display: block;
+    margin-bottom: 25px !important;
+}
+
+.width-200{
+    width: 200px !important;
+}
+
+.h2-title{
+    font-size: 29px !important;
+    margin-bottom: 3px !important;
+    margin-top: 75px !important;
+}
+
+.margin-bottom-20{
+    margin-bottom: 20px !important;
+}
+
+.margin-left-73{
+    margin-left: 73px !important;
+}

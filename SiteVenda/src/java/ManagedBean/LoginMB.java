@@ -60,7 +60,7 @@ public class LoginMB implements Serializable{
             if (usuario.verificaLogin(login, senha)) {
                 usuarioLogado = usuario;
                 if (usuario.isAdmin()) {
-                    return ("/gerenciamento/index?faces-redirect=true");
+                    return ("/gerenciamento/area-restrita?faces-redirect=true");
                 } else {
                     return ("/index?faces-redirect=true");
                 }

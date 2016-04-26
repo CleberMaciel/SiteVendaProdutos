@@ -36,17 +36,20 @@ public class UsuarioMB {
         this.listaUsuarios = listaUsuarios;
     }
     
+    public String cadastro(){
+        listaUsuarios.add(usuarioSelecionado);
+        return ("/index");
+    }
 
     public String novoUsuario(){
         usuarioSelecionado=new Usuario();
         return("/gerenciamento/formularioCadastro?faces-redirect=true");
     }
 
-    public String adicionarUsuario()
-    {
+    public String adicionarUsuario(){
         listaUsuarios.add(usuarioSelecionado);
         //return(this.novoUsuario());
-        return("/gerenciamento/paginaGerenciamento?faces-redirect=true");
+        return("/gerenciamento/gerenciar-usuarios?faces-redirect=true");
     }
 
     public String editarUsuario(Usuario u){
@@ -54,7 +57,7 @@ public class UsuarioMB {
         return("/gerenciamento/formularioEdicao?faces-redirect=true");
     }
     public String atualizarUsuario(){
-        return("/gerenciamento/index?faces-redirect=true");
+        return("/gerenciamento/gerenciar-usuarios?faces-redirect=true");
     }
 
     public void removerUsuario(Usuario usuario){

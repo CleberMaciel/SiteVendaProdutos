@@ -2,28 +2,102 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Bem vindo</title>
-
+        <title>Login - Mercado Digital</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>    
+        <link href="css/settings.css" rel="stylesheet" type="text/css"/>    
+        <link href="css/footer.css" rel="stylesheet" type="text/css"/>  
     </h:head>
 
     <h:body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.xhtml">Mercado Digital</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><h:link outcome="index" value="Página Inicial"></h:link></li>
+                    <li><h:link outcome="produtos" value="Produtos"></h:link></li>
+                    <li><h:link outcome="usuario/carrinho-de-compras" value="Carrinho de Compras"></h:link></li>
+                    <li><h:link outcome="login" value="Login / Cadastre-se"></h:link></li>
+                    <li><h:link outcome="gerenciamento/area-restrita" value="Área Restrita"></h:link></li>
+                </ul>
+            </div>
+        </nav>
 
-        <h:form>
-            <p:panelGrid columns="2">
-                <p:outputLabel value="Usuario: " for="idUsuario"/>
-                <p:inputText value="#{loginMB.login}" id="idUsuario"/>
-                <p:outputLabel value="Senha: " for="idSenha"/>
-                <p:password value="#{loginMB.senha}" id="idSenha"/>
-                <p:commandButton value="Login" action="#{loginMB.verificaLogin()}" />
-            </p:panelGrid>
-            <h:messages id="idMensagem" showDetail="true" errorClass="mensagem"/>
-            <p:link value="Acessar area de usuario" outcome="/usuario/index"></p:link>
-        </h:form>
+        <div class="leave-msg dark-back">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="main-title">
+                                <h2><span>Tem cadastro?</span><br/> Faça login!</h2>
+                                <p>Faça login e confira nossos produtos com excelentes preços.</p>
+                            </div>
+                            <div>
+                                <h:form>
+                                    <p:outputLabel value="Usuario: " for="idUser"></p:outputLabel>
+                                    <p:inputText value="#{loginMB.login}" id="idUser" class="width-input-100"></p:inputText><br/>
 
+                                    <p:outputLabel value="Senha: " for="idPass"></p:outputLabel>
+                                    <p:inputText value="#{loginMB.senha}" id="idPass" class="width-input-100"></p:inputText><br/>
+
+                                    <h:commandButton value="Login" action="#{loginMB.verificaLogin()}" class="btn-login-cadastro"></h:commandButton>
+                                </h:form>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="main-title">
+                                <h2>Não <span>tem cadastro?</span> Cadastre-se, agora!</h2>
+                                <p>Cadastre-se e usufrua dos nossos produtos com excelentes preços.</p>
+                            </div>
+                            <div>
+                                <h:form>
+                                    <div class="col-md-6 margin-bottom-30-form">
+                                        <p:outputLabel value="Nome completo: " for="idNome"></p:outputLabel>
+                                        <p:inputText value="#{usuarioMB.usuarioSelecionado.nome}" id="idNome" class="width-input-100"></p:inputText><br/>
+
+                                        <p:outputLabel value="Endereço: " for="idEndereco"></p:outputLabel>
+                                        <p:inputText value="#{usuarioMB.usuarioSelecionado.endereco}" id="idEndereco" class="width-input-100"></p:inputText><br/>
+
+                                        <p:outputLabel value="Telefone: " for="idTelefone"></p:outputLabel>
+                                        <p:inputText value="#{usuarioMB.usuarioSelecionado.telefone}" id="idTelefone" class="width-input-100"></p:inputText><br/>
+                                    </div>
+                                    <div class="col-md-6 margin-bottom-30-form">
+                                        <p:outputLabel value="E-mail: " for="idEmail"></p:outputLabel>
+                                        <p:inputText value="#{usuarioMB.usuarioSelecionado.email}" id="idEmail" class="width-input-100"></p:inputText><br/>
+
+                                        <p:outputLabel value="Nome de usuário: " for="idUser"></p:outputLabel>
+                                        <p:inputText value="#{usuarioMB.usuarioSelecionado.login}" id="idUser" class="width-input-100"></p:inputText><br/>
+
+                                        <p:outputLabel value="Senha: " for="idPass"></p:outputLabel>
+                                        <p:inputText value="#{usuarioMB.usuarioSelecionado.senha}" id="idPass" class="width-input-100"></p:inputText><br/>
+                                    </div>
+                                    <h:commandButton value="Cadastre-se" action="#{usuarioMB.cadastro()}" class="btn-login-cadastro"></h:commandButton>
+                                </h:form>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="footer" id="footer">
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="copyrights">Copyright &copy; 2016 - Desenvolvido por <a href="https://www.facebook.com/clebermacieljr">Cleber Maciel</a> e <a href="https://www.facebook.com/matheusouzaaaa">Matheus Souza</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </h:body>
-
 </html>
-
 

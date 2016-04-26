@@ -30,7 +30,7 @@ public class FiltroLogin implements Filter {
         LoginMB auth = (LoginMB) req.getSession().getAttribute("loginMB");
         if(auth!=null && auth.estaLogado()){
             if(auth.eAdmin())
-                resp.sendRedirect(req.getContextPath()+"/faces/gerenciamento/index.xhtml");
+                resp.sendRedirect(req.getContextPath()+"/faces/gerenciamento/area-restrita.xhtml");
             else
                 resp.sendRedirect(req.getContextPath()+"/faces/index.xhtml");
         }            

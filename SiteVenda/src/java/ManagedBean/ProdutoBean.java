@@ -62,6 +62,6 @@ public class ProdutoBean {
     }
     
     public String atualizar(){
-        return ("/gerenciamento/index?faces-redirect=true");
+        return ("/gerenciamento/area-restrita?faces-redirect=true");
     }
 }

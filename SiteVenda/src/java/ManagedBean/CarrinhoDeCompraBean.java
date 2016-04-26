@@ -41,6 +41,6 @@ public class CarrinhoDeCompraBean {
         item.setValorParcial(0);
         p.setQuantidade(p.getQuantidade() - item.getQuantidade());
         listaItens.add(item);
-        return ("carrinho");
+        return ("usuario/carrinho-de-compras");
     }
 }

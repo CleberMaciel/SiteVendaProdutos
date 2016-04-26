@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Adicionar Produtos - Mercado Digital</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+        <link href="../css/style.css" rel="stylesheet" type="text/css"/>    
+        <link href="../css/settings.css" rel="stylesheet" type="text/css"/>    
+        <link href="../css/footer.css" rel="stylesheet" type="text/css"/>  
+    </h:head>
+
+    <h:body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.xhtml">Mercado Digital</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><h:link outcome="/index" value="Página Inicial"></h:link></li>
+                    <li><h:link outcome="/produtos" value="Produtos"></h:link></li>
+                    <li><h:link outcome="/usuario/carrinho-de-compras" value="Carrinho de Compras"></h:link></li>
+                    <li><h:link outcome="/login" value="Login / Cadastre-se"></h:link></li>
+                    <li><h:link outcome="area-restrita" value="Área Restrita"></h:link></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="leave-msg dark-back">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <div class="main-title">
+                                <h2><span>Adicionar</span> Produtos</h2>
+                                <p>Administrador, nesta página você poderá adicionar produtos ao sistema.</p>
+                            </div>
+                            <div>
+                                <h:form>
+                                    <div class="col-md-6 margin-bottom-30-form">
+                                        <p:outputLabel value="Nome produto: " for="idNome"></p:outputLabel>
+                                        <p:inputText value="#{produtoBean.prod.produtoNome}" id="idNome" class="width-input-100"></p:inputText><br/>
+
+                                        <p:outputLabel value="Cor: " for="idCor"></p:outputLabel>
+                                        <p:inputText value="#{produtoBean.prod.produtoCor}" id="idCor" class="width-input-100"></p:inputText><br/>
+
+                                        <p:outputLabel value="Quantidade em estoque: " for="idQuantidade"></p:outputLabel>
+                                        <p:inputText value="#{produtoBean.prod.quantidade}" id="idQuantidade" class="width-input-100"></p:inputText><br/>
+                                    </div>
+                                    <div class="col-md-6 margin-bottom-30-form" style="margin-bottom: 100px !important;">
+                                        <p:outputLabel for="idCategoria" value="Categoria:" />
+                                        <p:selectOneMenu id="idCategoria" value="#{produtoBean.prod.produtoCategoria}" converter="omnifaces.SelectItemsConverter" class="width-input-100">
+                                            <f:selectItems  value="#{categoriaBean.listaCategoria}" var="cat" itemValue="#{cat}"  itemLabel="#{cat.nomeCategoria}"/>
+                                        </p:selectOneMenu>
+
+                                        <p:outputLabel value="Descrição: " for="idDescricao"></p:outputLabel>
+                                        <p:inputText value="#{produtoBean.prod.produtoDescricao}" id="idDescricao" class="width-input-100"></p:inputText><br/>
+
+                                        <p:outputLabel value="Valor: " for="idValor"></p:outputLabel>
+                                        <p:inputText value="#{produtoBean.prod.valor}" id="idValor" class="width-input-100"></p:inputText><br/>
+                                    </div>
+                                    <p:commandButton value="Cadastrar Produtos" action="#{produtoBean.adicionarProduto()}" class="btn-login-cadastro" update="lista" ></p:commandButton>
+                                </h:form>
+                            </div>
+                            <div class="main-title" style="margin-top: 50px;">
+                                <h2><span>Listagem de</span> Produtos</h2>
+                                <p>Administrador, nesta parte você verá os produtos do sistema.</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h:form id="lista">
+                                        <p:dataTable value="#{produtoBean.listaProdutos}" var="listaProdutos" paginator="true" rows="10" class="table table-striped">
+
+                                            <p:column headerText="Nome do Produto">
+                                                <p:outputLabel value="#{listaProdutos.produtoNome}"></p:outputLabel>
+                                            </p:column>
+
+                                            <p:column headerText="Cor">
+                                                <p:outputLabel value="#{listaProdutos.produtoCor}"></p:outputLabel>
+                                            </p:column>
+
+                                            <p:column headerText="Quantidade em estoque">
+                                                <p:outputLabel value="#{listaProdutos.quantidade}"></p:outputLabel>
+                                            </p:column>
+
+                                            <p:column headerText="Valor unitario">
+                                                <p:outputLabel value="#{listaProdutos.valor}"></p:outputLabel>
+                                            </p:column>
+
+
+                                            <p:column headerText="Categoria">
+                                                <p:outputLabel value="#{listaProdutos.produtoCategoria}"></p:outputLabel>
+                                            </p:column>
+
+                                            <p:column headerText="Descrição">
+                                                <p:commandButton value="Descrição" type="button" onclick="PF('descri').show();"/>
+
+                                                <p:dialog header="Descrição" widgetVar="descri" modal="true" height="300">
+                                                    <p:outputLabel value="#{listaProdutos.produtoDescricao}"></p:outputLabel>
+                                                </p:dialog>
+                                            </p:column>
+                                            <p:column headerText="Funções">
+                                                <p:panelGrid columns="2">
+                                                    <p:commandButton value="Remover" action="#{produtoBean.deletarProduto(listaProdutos)}" class="botao-administrador" update="lista"/>
+                                                    <p:commandButton value="Editar" actionListener="#{mensagens.infoEditarProdutos()}" action="#{produtoBean.editarProduto(listaProdutos)}" class="botao-administrador"></p:commandButton>
+                                                </p:panelGrid>
+                                            </p:column>
+
+                                        </p:dataTable>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="footer" id="footer">
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="copyrights">Copyright &copy; 2016 - Desenvolvido por <a href="https://www.facebook.com/clebermacieljr">Cleber Maciel</a> e <a href="https://www.facebook.com/matheusouzaaaa">Matheus Souza</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </h:body>
+</html>
+

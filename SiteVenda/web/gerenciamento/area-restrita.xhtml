@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+        <link href="../css/style.css" rel="stylesheet" type="text/css"/>    
+        <link href="../css/settings.css" rel="stylesheet" type="text/css"/>    
+        <link href="../css/footer.css" rel="stylesheet" type="text/css"/>
+        <title>Área Restrita - Mercado Digital</title>
+    </h:head>
+
+    <h:body>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.xhtml">Mercado Digital</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><h:link outcome="/index" value="Página Inicial"></h:link></li>
+                    <li><h:link outcome="/produtos" value="Produtos"></h:link></li>
+                    <li><h:link outcome="/usuario/carrinho-de-compras" value="Carrinho de Compras"></h:link></li>
+                    <li><h:link outcome="/login" value="Login / Cadastre-se"></h:link></li>
+                    <li><h:link outcome="area-restrita" value="Área Restrita"></h:link></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!--Start Content-->
+        <div class="content">
+            <div class="services-five dark-back">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-title">
+                                <h2><span>Bem vindo, </span> Administrador</h2>
+                                <p>Aqui você encontra terá acesso as funcionalidades do sistema.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="service-sec">
+                                <h6>Gerenciar Usuário</h6>
+                                <p class="display-block-margin-bottom-25">Aqui você, administrador, terá total acesso ao gerenciamento dos usuários.</p>
+                                <span class="botao-administrador"><h:link value="Gerenciar Usuários" outcome="gerenciar-usuarios"></h:link></span>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="service-sec">
+                                <h6>Gerenciar Produtos</h6>
+                                <p class="display-block-margin-bottom-25">Aqui você, administrador, terá total acesso ao gerenciamento dos produtos.</p>
+                                <span class="botao-administrador"><a href="gerenciar-produtos.xhtml">Gerenciar Produtos</a></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="service-sec">
+                                <h6>Realizar Logout</h6>
+                                <p class="display-block-margin-bottom-25">Aqui você, administrador, você finaliza sua sessão.</p>
+                                <span class="botao-administrador"></span>
+                                <h:form><h:commandLink actionListener="#{loginMB.realizaLogout()}" value="Logout"></h:commandLink></h:form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Content-->
+
+        <footer class="footer" id="footer">
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="copyrights">Copyright &copy; 2016 - Desenvolvido por <a href="https://www.facebook.com/clebermacieljr">Cleber Maciel</a> e <a href="https://www.facebook.com/matheusouzaaaa">Matheus Souza</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </h:body>
+
+</html>

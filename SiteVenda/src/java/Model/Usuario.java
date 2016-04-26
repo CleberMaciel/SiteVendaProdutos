@@ -7,19 +7,31 @@ public class Usuario {
     private String login;
     private String senha;
 
+    private String nome, endereco, telefone, email;
+
     private boolean admin;
 
     public Usuario() {
     }
 
-    public Usuario(String login, String senha) {
+    public Usuario(String login, String senha, String nome, String endereco, String telefone, String email, boolean admin) {
+        this.login = login;
+        this.senha = senha;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.email = email;
+        this.admin = false;
+        
+    }
 
+    public Usuario(String login, String senha) {
         this.login = login;
         this.senha = senha;
         this.admin = true;
-
     }
-
+    
+    
     public String getLogin() {
         return login;
     }
@@ -48,8 +60,38 @@ public class Usuario {
         }
     }
 
-    
-    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
@@ -82,6 +124,5 @@ public class Usuario {
         }
         return true;
     }
-    
-    
+
 }
