@@ -7,10 +7,12 @@ package ManagedBean;
 
 import Model.Item;
 import Model.Produto;
+import Model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -21,6 +23,7 @@ import javax.faces.bean.ManagedBean;
 public class CarrinhoDeCompraBean {
 
     private List<Item> listaItens;
+    private Usuario usuarioLogado;
 
     public CarrinhoDeCompraBean() {
         listaItens = new ArrayList<>();
@@ -42,5 +45,11 @@ public class CarrinhoDeCompraBean {
         p.setQuantidade(p.getQuantidade() - item.getQuantidade());
         listaItens.add(item);
         return ("usuario/carrinho-de-compras");
+    }
+
+    public void finalizarCompra() {
+        listaItens.removeAll(listaItens);
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+       // return ("/index?faces-redirect=true");
     }
 }
