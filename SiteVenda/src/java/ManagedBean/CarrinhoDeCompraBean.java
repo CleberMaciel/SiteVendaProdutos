@@ -28,6 +28,7 @@ public class CarrinhoDeCompraBean {
 
     public CarrinhoDeCompraBean() {
         listaItens = new ArrayList<>();
+        log = new ArrayList<>();
     }
 
     public List<Item> getListaItens() {
