@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:dataTable value="#{carrinhoDeCompraBean.log}" var="listaItens" paginator="true" rows="10">
+
+                                            <p:column headerText="Nome do Produto">
+                                                <p:outputLabel value="#{listaItens.p.produtoNome}"></p:outputLabel>
+                                            </p:column>
+
+                                            <p:column headerText="Cor">
+                                                <p:outputLabel value="#{listaItens.p.produtoCor}"></p:outputLabel>
+                                            </p:column>
+
+                                            <p:column headerText="Quantidade em estoque">
+                                                <p:outputLabel value="#{listaItens.quantidade}"></p:outputLabel>
+                                            </p:column>
+
+                                            <p:column headerText="Categoria">
+                                                <p:outputLabel value="#{listaItens.p.produtoCategoria}"></p:outputLabel>
+                                            </p:column>
+
+                                            <p:column headerText="Descrição">
+                                                <p:commandButton value="Descrição" type="button" onclick="PF('descri').show();"/>
+
+                                                <p:dialog header="Descrição" widgetVar="descri" modal="true" height="300">
+                                                    <p:outputLabel value="#{listaItens.p.produtoDescricao}"></p:outputLabel>
+                                                </p:dialog>
+                                            </p:column>
+                                        </p:dataTable>
+                                        <p:commandButton value="Voltar" action="../index"/>
+
+                                     </h:form>
+    </h:body>
+</html>
+

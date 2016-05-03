@@ -23,6 +23,7 @@ import javax.faces.context.FacesContext;
 public class CarrinhoDeCompraBean {
 
     private List<Item> listaItens;
+    private List<Item> log;
     private Usuario usuarioLogado;
 
     public CarrinhoDeCompraBean() {
@@ -37,6 +38,23 @@ public class CarrinhoDeCompraBean {
         this.listaItens = listaItens;
     }
 
+    public List<Item> getLog() {
+        return log;
+    }
+
+    public void setLog(List<Item> log) {
+        this.log = log;
+    }
+
+    public Usuario getUsuarioLogado() {
+        return usuarioLogado;
+    }
+
+    public void setUsuarioLogado(Usuario usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
+    }
+
+    
     public String addCarrinho(Produto p) {
         Item item = new Item();
         item.setP(p);
@@ -44,6 +62,7 @@ public class CarrinhoDeCompraBean {
         item.setValorParcial(0);
         p.setQuantidade(p.getQuantidade() - item.getQuantidade());
         listaItens.add(item);
+        log.add(item);
         return ("usuario/carrinho-de-compras");
     }
 
